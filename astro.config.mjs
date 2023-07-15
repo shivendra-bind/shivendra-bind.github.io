@@ -7,6 +7,5 @@ import sitemap from "@astrojs/sitemap";
 // https://astro.build/config
 export default defineConfig({
   integrations: [react(), tailwind(), sitemap()],
-  site: "https://shivendra-bind.github.io/",
-  base: "/shivendra.bind",
+  site: "https://shivendra-bind.github.io/"
 });
