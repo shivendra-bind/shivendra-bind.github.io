@@ -2,10 +2,9 @@
 import Resume from "../layouts/Resume.astro";
 import Hr from "../components/Hr.astro";
 import SectionTitle from "../components/SectionTitle.astro";
-import Vr from "../components/Vr.astro";
 import projects from "../data/projects.json";
-import skillImport from "../data/skills.json" ;
-import type  { Skill } from "../types/index";
+import skillImport from "../data/skills.json";
+import type { Skill } from "../types/index";
 import Project from "../components/Project";
 import Education from "../components/Education";
 import Extra from "../components/Extra.astro";
@@ -17,14 +16,16 @@ const skills = skillImport as Skill; // this is to avoid the error of type misma
 		class="max-w-5xl mx-auto bg-white rounded-sm p-8 shadow-lg print:shadow-none text-gray-800"
 	>
 		<div class="text-gray-500">
-			<h6 class="text-2xl font-semibold capitalize">Wakad, Pune</h6>
+			<h6 class="text-xl font-medium capitalize">Wakad, Pune</h6>
 			<p class="-mt-0.5">+91 9108144735</p>
 			<a href="mailto:shivendra.bind@gmail.com" class="block -mt-1"
 				>shivendra.bind@gmail.com</a
 			>
 		</div>
 
-		<h1 class="text-3xl font-semibold text-cyan-600 capitalize my-2 font-oswald">
+		<h1
+			class="text-3xl font-semibold text-cyan-600 capitalize my-2 font-oswald"
+		>
 			Shivendra Bind
 		</h1>
 		<Hr />
@@ -40,41 +41,64 @@ const skills = skillImport as Skill; // this is to avoid the error of type misma
 			<Hr />
 			<div class="grid grid-cols-3 gap-x-10">
 				{
-					Object.keys(skills as Skill).map((skillType: keyof Skill) => (
-						<>
-						<div class="col-span-1 place-content-center">{skillType}</div>
-						<div class="col-span-2">
-							{
-								skillType !== "other" ?
-								 <span>{skills[skillType].join(" | ")}</span>
-								: <span>{skills[skillType].join(" | ")}</span>
-								
-							}
-						</div>
-						</>
-					))
+					Object.keys(skills as Skill).map(
+						(skillType: keyof Skill) => (
+							<>
+								<div class="col-span-1 place-content-center">
+									{skillType}
+								</div>
+								<div class="col-span-2">
+									<ul class="flex flex-col md:flex-row space-x-1 flex-wrap">
+										{(skills as Skill)[skillType].map(
+											(skill: string) => (
+												<li class="shrink-0">{skill}</li>
+												<li class="hidden md:block last:hidden">|</li>
+											)
+										)}
+									</ul>
+								</div>
+							</>
+						)
+					)
 				}
-				
 			</div>
 		</div>
-		
+
 		<div class="mt-8">
 			<SectionTitle title="EXPERIENCE" />
 			<Hr />
-			{projects.map(({ date, role, company, description, techstack, work, training}) =>(
-				<Project  date={date} role={role} company={company} description={description} techstack={techstack} work={work} training={training} />
-				))}
+			{
+				projects.map(
+					({
+						date,
+						role,
+						company,
+						description,
+						techstack,
+						work,
+						training,
+					}) => (
+						<Project
+							date={date}
+							role={role}
+							company={company}
+							description={description}
+							techstack={techstack}
+							work={work}
+							training={training}
+						/>
+					)
+				)
+			}
 		</div>
 		<div class="mt-8">
 			<SectionTitle title="Education" />
 			<Hr />
 			<Education />
-		</div>	
-		
+		</div>
+
 		<div class="mt-8">
 			<Extra />
-		</div>	
-		
+		</div>
 	</div>
 </Resume>
-
