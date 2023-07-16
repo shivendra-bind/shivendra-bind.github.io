@@ -16,15 +16,15 @@ const skills = skillImport as Skill; // this is to avoid the error of type misma
 		class="max-w-5xl mx-auto bg-white rounded-sm p-8 shadow-lg print:shadow-none text-gray-800"
 	>
 		<div class="text-gray-500">
-			<h6 class="text-xl font-medium capitalize">Wakad, Pune</h6>
-			<p class="-mt-0.5">+91 9108144735</p>
-			<a href="mailto:shivendra.bind@gmail.com" class="block -mt-1"
+			<h6 class="text-xl font-medium capitalize print:text-base">Wakad, Pune</h6>
+			<p class="-mt-0.5 print:text-sm">+91 9108144735</p>
+			<a href="mailto:shivendra.bind@gmail.com" class="block -mt-1 print:text-sm"
 				>shivendra.bind@gmail.com</a
 			>
 		</div>
 
 		<h1
-			class="text-3xl font-semibold text-cyan-600 capitalize my-2 font-oswald"
+			class="text-3xl font-semibold text-cyan-600 capitalize my-2 font-oswald print:text-xl"
 		>
 			Shivendra Bind
 		</h1>
@@ -36,7 +36,7 @@ const skills = skillImport as Skill; // this is to avoid the error of type misma
 			important to stay organized and to identify the discrete stages of a
 			project and work in a schedule around those.
 		</p>
-		<div class="mt-8">
+		<div class="mt-8 print:mt-2">
 			<SectionTitle title="SKILLS" />
 			<Hr />
 			<div class="grid grid-cols-3 gap-x-10">
@@ -48,11 +48,11 @@ const skills = skillImport as Skill; // this is to avoid the error of type misma
 									{skillType}
 								</div>
 								<div class="col-span-2">
-									<ul class="flex flex-col md:flex-row space-x-1 flex-wrap">
+									<ul class="flex flex-col md:flex-row print:flex-row md:space-x-1 print:space-x-1 flex-wrap">
 										{(skills as Skill)[skillType].map(
 											(skill: string) => (
 												<li class="shrink-0">{skill}</li>
-												<li class="hidden md:block last:hidden">|</li>
+												<li class="hidden md:block print:block  last:hidden print:last:hidden">|</li>
 											)
 										)}
 									</ul>
@@ -64,7 +64,7 @@ const skills = skillImport as Skill; // this is to avoid the error of type misma
 			</div>
 		</div>
 
-		<div class="mt-8">
+		<div class="mt-8 print:mt-2">
 			<SectionTitle title="EXPERIENCE" />
 			<Hr />
 			{
@@ -91,7 +91,7 @@ const skills = skillImport as Skill; // this is to avoid the error of type misma
 				)
 			}
 		</div>
-		<div class="mt-8">
+		<div class="mt-8 print:mt-2">
 			<SectionTitle title="Education" />
 			<Hr />
 			<Education />

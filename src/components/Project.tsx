@@ -20,16 +20,25 @@ const Project = ({
   training,
 }: Props) => {
   return (
-    <div className="text-gray-800 flex gap-1 flex-col text-sm mb-4 font-roboto">
-      <span className="text-xs font-medium text-gray-600 leading-tight">
-        ( {date} )
-      </span>
-      <h2 className="text-xl font-medium mb-2">
-        <span className="text-cyan-600 font-oswald">{role}</span> @{company}
-      </h2>
+    <div className="text-gray-800 flex gap-1 flex-col text-sm mb-4 print:mb-2 font-roboto print:text-xs">
+      <span className="sm:hidden print:hidden text-xs  text-gray-500 leading-tight">
+          ( {date} )
+        </span>
+      <div className="flex items-center justify-between">
+        <h2 className="text-xl font-medium mb-2 print:mb-0">
+          <span className="text-cyan-600 font-oswald">{role}</span> @{company}
+        </h2>
+        <span className="hidden md:inline-block print:inline-block text-xs  text-gray-500 leading-tight">
+          ( {date} )
+        </span>
+      </div>
       <p className="pl-2">{description}</p>
       <h3 className="pl-2 font-medium">Tech: {techstack}</h3>
-      {training && <p className="font-medium pl-2"><strong>Training:</strong> {training}</p>}
+      {training && (
+        <p className="font-medium pl-2">
+          <strong>Training:</strong> {training}
+        </p>
+      )}
       <ul className="mt-2 [list-style-type:'-'] pl-6">
         {work?.map((item) => (
           <li className="pl-2">{item}</li>
