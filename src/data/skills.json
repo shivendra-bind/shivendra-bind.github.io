@@ -1,0 +1,12 @@
+{
+  "Language": ["JavaScript (TypeScript)", "Python"],
+  "Framework": ["React", "Django", "Flask", "Next.js", "Express"],
+  "Database": ["PostgreSQL", "MongoDB", "MySQL"],
+  "Other": [
+    "Critical thinking",
+    "Goal-oriented",
+    "Future-focused",
+    "Good verbal and written Communication",
+    "Team Management"
+  ]
+}

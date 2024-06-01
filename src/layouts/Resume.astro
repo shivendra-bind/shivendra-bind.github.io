@@ -1,0 +1,37 @@
+---
+const desc =
+    "Welcome to my website! I am a Full-Stack web developer with 8+ years of experience in web and software design, development, and testing. I specialize in creating efficient and user-friendly web solutions. Explore my portfolio and discover how I can help you bring your ideas to life. Contact me today for web development opportunities.";
+const { title, description = desc } = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>{title}</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600&family=Roboto:wght@400;500;700&display=swap"
+            rel="stylesheet"
+        />
+        <meta name="description" content={description} />
+    </head>
+    <body class="bg-zinc-300">
+        <main class="container mx-auto">
+            <slot />
+        </main>
+    </body>
+</html>
+
+<style>
+    body {
+        font-family: "Roboto", sans-serif;
+    }
+    @media print {
+        body {
+            font-size: 0.825rem;
+        }
+    }
+</style>

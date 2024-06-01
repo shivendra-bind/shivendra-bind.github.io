@@ -1,0 +1,103 @@
+---
+import Resume from "../layouts/Resume.astro";
+import Hr from "../components/Hr.astro";
+import SectionTitle from "../components/SectionTitle.astro";
+import projects from "../data/projects.json";
+import skillImport from "../data/skills.json";
+import type { Skill } from "../types/index";
+import Project from "../components/Project";
+import Education from "../components/Education";
+import Extra from "../components/Extra.astro";
+const skills = skillImport as Skill; // this is to avoid the error of type mismatch
+---
+
+<Resume title="Shivendra Bind | Full-Stack web developer">
+	<div
+		class="max-w-5xl mx-auto bg-white rounded-sm p-8 shadow-lg print:shadow-none text-gray-800"
+	>
+		<div class="text-gray-500">
+			<h6 class="text-xl font-medium capitalize print:text-base">Wakad, Pune</h6>
+			<p class="-mt-0.5 print:text-sm">+91 9108144735</p>
+			<a href="mailto:shivendra.bind@gmail.com" class="block -mt-1 print:text-sm"
+				>shivendra.bind@gmail.com</a
+			>
+		</div>
+
+		<h1
+			class="text-3xl font-semibold text-cyan-600 capitalize my-2 font-oswald print:text-xl"
+		>
+			Shivendra Bind
+		</h1>
+		<Hr />
+		<p class="text-gray-800">
+			As a skilled Full-Stack web developer, I am actively pursuing web development opportunities where I can apply my
+			extensive 8+ years of experience in designing, developing, and testing websites and software. I strongly emphasize
+			the significance of maintaining organization and effectively delineating project milestones to ensure a structured
+			workflow.
+		</p>
+		<div class="mt-8 print:mt-2">
+			<SectionTitle title="SKILLS" />
+			<Hr />
+			<div class="grid grid-cols-3 gap-x-10">
+				{
+					Object.keys(skills as Skill).map(
+						(skillType: keyof Skill) => (
+							<>
+								<div class="col-span-1 place-content-center">
+									{skillType}
+								</div>
+								<div class="col-span-2">
+									<ul class="flex flex-col md:flex-row print:flex-row md:space-x-1 print:space-x-1 flex-wrap">
+										{(skills as Skill)[skillType].map(
+											(skill: string) => (
+												<li class="shrink-0">{skill}</li>
+												<li class="hidden md:block print:block  last:hidden print:last:hidden">|</li>
+											)
+										)}
+									</ul>
+								</div>
+							</>
+						)
+					)
+				}
+			</div>
+		</div>
+
+		<div class="mt-8 print:mt-2">
+			<SectionTitle title="EXPERIENCE" />
+			<Hr />
+			{
+				projects.map(
+					({
+						date,
+						role,
+						company,
+						description,
+						techstack,
+						work,
+						training,
+					}) => (
+						<Project
+							date={date}
+							role={role}
+							company={company}
+							description={description}
+							techstack={techstack}
+							work={work}
+							training={training}
+						/>
+					)
+				)
+			}
+		</div>
+		<div class="mt-8 print:mt-2">
+			<SectionTitle title="Education" />
+			<Hr />
+			<Education />
+		</div>
+
+		<div class="mt-8">
+			<Extra />
+		</div>
+	</div>
+</Resume>
