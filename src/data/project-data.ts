@@ -1,9 +1,25 @@
-[
+import type { Skill, TProject } from "../types"
+
+export const SkillData: Skill = {
+  "Language": ["JavaScript (TypeScript)", "Python"],
+  "Framework": ["React", "Django", "Flask", "Next.js", "Express"],
+  "Database": ["PostgreSQL", "MongoDB", "MySQL"],
+  "Other": [
+    "Critical thinking",
+    "Goal-oriented",
+    "Future-focused",
+    "Good verbal and written Communication",
+    "Team Management"
+  ]
+}
+
+
+const ProjecData: TProject[] = [
   {
     "date": "Feb-2023 - Present",
     "role": "Technical Lead",
     "company": "Newscape Consulting LLC, Pune",
-    "description": "Working on and ERP project for a US based client. It is a web based application which helps distributors of promotional products to manage their business. It has different modules like  Proposal, Quotes, Orders, Inventory, Invoicing, Accounting, Reports, etc.", 
+    "description": "Working on an ERP project for a US based client. It is a web based application which helps distributors of promotional products to manage their business. It has different modules like  Proposal, Quotes, Orders, Inventory, Invoicing, Accounting, Reports, etc.",
     "techstack": "NodeJS, microservice, MongoDB, Docker, ReactJS18.2, React-Query, Zustand, ES6, Tailwind",
     "work": [
       "Team of 5, agile",
@@ -40,7 +56,7 @@
       "Took part in story estimation and Peer reviewed code",
       "Implemented micro-frontend"
     ]
-  },{
+  }, {
     "date": "July-2019 - Nov-2020",
     "role": "Application Developer Senior Analyst",
     "company": "Accenture Solutions Pvt Ltd, Pune",
@@ -52,7 +68,7 @@
       "Designed web application",
       "Build dashboard to display project timeline, environment status, testing matrices etc"
     ]
-  },{
+  }, {
     "date": "Mar-2017 - July-2019",
     "role": "Specialist programmer",
     "company": "Infosys Ltd, Pune",
@@ -64,7 +80,7 @@
       "Worked closelly with solution architect to understand and document solution"
     ],
     "training": "MEAN and MERN stack, 4 months"
-  },{
+  }, {
     "date": "July-2015 - Mar-2017",
     "role": "Systems Engineer",
     "company": "Infosys Ltd, Mysore",
@@ -82,6 +98,8 @@
     ],
     "training": "Professional software development\\Testing training from Infosys, 6 months. Python, RDBMS, Unix shell scripts, ALM, UFT, test planning and testing."
 
-} 
+  }
 
 ]
+
+export default ProjecData

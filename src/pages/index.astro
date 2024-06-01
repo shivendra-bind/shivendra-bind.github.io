@@ -2,13 +2,13 @@
 import Resume from "../layouts/Resume.astro";
 import Hr from "../components/Hr.astro";
 import SectionTitle from "../components/SectionTitle.astro";
-import projects from "../data/projects.json";
-import skillImport from "../data/skills.json";
+import {SkillData} from "../data/project-data";
+
 import type { Skill } from "../types/index";
-import Project from "../components/Project";
+import Projects from "../components/Project";
 import Education from "../components/Education";
 import Extra from "../components/Extra.astro";
-const skills = skillImport as Skill; // this is to avoid the error of type mismatch
+
 ---
 
 <Resume title="Shivendra Bind | Full-Stack web developer">
@@ -40,7 +40,7 @@ const skills = skillImport as Skill; // this is to avoid the error of type misma
 			<Hr />
 			<div class="grid grid-cols-3 gap-x-10">
 				{
-					Object.keys(skills as Skill).map(
+					Object.keys(SkillData ).map(
 						(skillType: keyof Skill) => (
 							<>
 								<div class="col-span-1 place-content-center">
@@ -48,14 +48,15 @@ const skills = skillImport as Skill; // this is to avoid the error of type misma
 								</div>
 								<div class="col-span-2">
 									<ul class="flex flex-col md:flex-row print:flex-row md:space-x-1 print:space-x-1 flex-wrap">
-										{(skills as Skill)[skillType].map(
-											(skill: string) => (
+										{SkillData[skillType].map(
+											(skill) => (
 												<li class="shrink-0">{skill}</li>
 												<li class="hidden md:block print:block  last:hidden print:last:hidden">|</li>
 											)
 										)}
 									</ul>
 								</div>
+								
 							</>
 						)
 					)
@@ -66,29 +67,8 @@ const skills = skillImport as Skill; // this is to avoid the error of type misma
 		<div class="mt-8 print:mt-2">
 			<SectionTitle title="EXPERIENCE" />
 			<Hr />
-			{
-				projects.map(
-					({
-						date,
-						role,
-						company,
-						description,
-						techstack,
-						work,
-						training,
-					}) => (
-						<Project
-							date={date}
-							role={role}
-							company={company}
-							description={description}
-							techstack={techstack}
-							work={work}
-							training={training}
-						/>
-					)
-				)
-			}
+			<Projects />
+			
 		</div>
 		<div class="mt-8 print:mt-2">
 			<SectionTitle title="Education" />

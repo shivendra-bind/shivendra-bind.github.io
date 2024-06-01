@@ -1,4 +1,5 @@
-import React from "react";
+import ProjecData from "../data/project-data";
+import type { TProject } from "../types";
 
 interface Props {
   date: string;
@@ -9,6 +10,10 @@ interface Props {
   work: string[];
   training?: string;
 }
+
+export const Projects = () => ProjecData.map((project: TProject) => <Project {...project} />);
+
+
 
 const Project = ({
   date,
@@ -22,8 +27,8 @@ const Project = ({
   return (
     <div className="text-gray-800 flex gap-1 flex-col text-sm mb-4 print:mb-2 font-roboto print:text-xs">
       <span className="sm:hidden print:hidden text-xs  text-gray-500 leading-tight">
-          ( {date} )
-        </span>
+        ( {date} )
+      </span>
       <div className="flex items-center justify-between">
         <h2 className="text-xl font-medium mb-2 print:mb-0">
           <span className="text-cyan-600 font-oswald">{role}</span> @{company}
@@ -40,12 +45,12 @@ const Project = ({
         </p>
       )}
       <ul className="mt-2 [list-style-type:'-'] pl-6">
-        {work?.map((item) => (
-          <li className="pl-2">{item}</li>
+        {work?.map((item, i) => (
+          <li className="pl-2" key={i}>{item}</li>
         ))}
       </ul>
     </div>
   );
 };
 
-export default Project;
+export default Projects;
